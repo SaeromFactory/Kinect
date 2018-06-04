@@ -439,6 +439,15 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                                     Console.Write(value + "  좌표(Neck): 2" + "\n");
                                 }
 
+                                // spineshoulder 출력
+                                Dictionary<string, string> spineshoulder = new Dictionary<string, string>();
+                                if (jointType == JointType.SpineShoulder)
+                                {
+                                    spineshoulder.Add("20", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = spineshoulder["20"];
+                                    Console.Write(value + "  좌표(SpineShoulder): 20" + "\n");
+                                }
+
                                 // shoulderleft 출력
                                 Dictionary<string, string> shoulderleft = new Dictionary<string, string>();
                                 if (jointType == JointType.ShoulderLeft)
@@ -471,26 +480,17 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                                 if (jointType == JointType.ElbowRight)
                                 {
                                     elbowright.Add("9", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
-                                    Object value = elbowleft["9"];
+                                    Object value = elbowright["9"];
                                     Console.Write(value + "  좌표(ElbowRignt): 9" + "\n");
                                 }
-                            
-                                // spinemid 출력
-                                Dictionary<string, string> spinemid = new Dictionary<string, string>();          
-                                if (jointType == JointType.SpineMid)
-                                  {
-                                    spinemid.Add("1", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
-                                    Object value = spinemid["1"];
-                                    Console.Write(value + "  좌표(spinemid): 1" + "\n");
-                                  }
-
+                                                            
                                 // wristleft 출력
                                 Dictionary<string, string> wristleft = new Dictionary<string, string>();
                                 if (jointType == JointType.WristLeft)
                                 {
                                     wristleft.Add("6", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
                                     Object value = wristleft["6"];
-                                    Console.Write(value + "  좌표(wristleft): 6" + "\n");
+                                    Console.Write(value + "  좌표(WristLeft): 6" + "\n");
                                 }
 
                                 // wristright 출력
@@ -499,7 +499,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                                 {
                                     wristright.Add("10", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
                                     Object value = wristright["10"];
-                                    Console.Write(value + "  좌표(wristright): 10" + "\n");
+                                    Console.Write(value + "  좌표(WristRight): 10" + "\n");
                                 }
 
                                 // thumbleft 출력
@@ -508,7 +508,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                                 {
                                     thumbleft.Add("22", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
                                     Object value = thumbleft["22"];
-                                    Console.Write(value + "  좌표(thumbleft): 22" + "\n");
+                                    Console.Write(value + "  좌표(ThumbLeft): 22" + "\n");
                                 }
 
                                 // thumbright 출력
@@ -516,8 +516,53 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                                 if (jointType == JointType.ThumbRight)
                                 {
                                     thumbright.Add("24", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
-                                    Object value = thumbleft["24"];
-                                    Console.Write(value + "  좌표(thumbright): 24" + "\n");
+                                    Object value = thumbright["24"];
+                                    Console.Write(value + "  좌표(ThumbRight): 24" + "\n");
+                                }
+
+                                // handleft 출력
+                                Dictionary<string, string> handleft = new Dictionary<string, string>();
+                                if (jointType == JointType.HandLeft)
+                                {
+                                    handleft.Add("7", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = handleft["7"];
+                                    Console.Write(value + "  좌표(HandLeft): 7" + "\n");
+                                }
+
+                                // handright 출력
+                                Dictionary<string, string> handright = new Dictionary<string, string>();
+                                if (jointType == JointType.HandRight)
+                                {
+                                    handright.Add("11", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = handright["11"];
+                                    Console.Write(value + "  좌표(HandRight): 11" + "\n");
+                                }
+
+                                // handtipleft 출력
+                                Dictionary<string, string> handtipleft = new Dictionary<string, string>();
+                                if (jointType == JointType.HandTipLeft)
+                                {
+                                    handtipleft.Add("21", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = handtipleft["21"];
+                                    Console.Write(value + "  좌표(HandTipLeft): 21" + "\n");
+                                }
+
+                                // handtipright 출력
+                                Dictionary<string, string> handtipright = new Dictionary<string, string>();
+                                if (jointType == JointType.HandTipRight)
+                                {
+                                    handtipright.Add("23", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = handtipright["23"];
+                                    Console.Write(value + "  좌표(HandTipRight): 23" + "\n");
+                                }
+
+                                // spinemid 출력
+                                Dictionary<string, string> spinemid = new Dictionary<string, string>();
+                                if (jointType == JointType.SpineMid)
+                                {
+                                    spinemid.Add("1", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = spinemid["1"];
+                                    Console.Write(value + "  좌표(spinemid): 1" + "\n");
                                 }
 
                                 // spinebase 출력
