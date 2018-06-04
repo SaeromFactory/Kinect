@@ -62,9 +62,9 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
             public static void testchectname(string name)
             {
-                string query = "INSERT INTO raw_data(num) VALUES(7)";
+                string query = "INSERT INTO raw_data(num) VALUES(3)";
                 Console.WriteLine("Query Exec String is {0}", query);
-
+                                                                                                          
                 MySqlCommand query_exec = new MySqlCommand(query, sql_connection);
                 MySqlDataReader query_result = query_exec.ExecuteReader();
 
@@ -421,8 +421,60 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                                     position.Z = InferredZPositionClamp;
                                 }
 
-                                // spinemid ~ 끝까지                
-                                               
+                                // head 출력
+                                Dictionary<string, string> head = new Dictionary<string, string>();
+                                if (jointType == JointType.Head)
+                                {
+                                    head.Add("3", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = head["3"];
+                                    Console.Write(value + "  좌표(Head): 3" + "\n");
+                                }
+
+                                // neck 출력
+                                Dictionary<string, string> neck = new Dictionary<string, string>();
+                                if (jointType == JointType.Neck)
+                                {
+                                    neck.Add("2", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = neck["2"];
+                                    Console.Write(value + "  좌표(Neck): 2" + "\n");
+                                }
+
+                                // shoulderleft 출력
+                                Dictionary<string, string> shoulderleft = new Dictionary<string, string>();
+                                if (jointType == JointType.ShoulderLeft)
+                                {
+                                    shoulderleft.Add("4", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = shoulderleft["4"];
+                                    Console.Write(value + "  좌표(ShoulerLeft): 4" + "\n");
+                                }
+
+                                // shoulderright 출력
+                                Dictionary<string, string> shoulderright = new Dictionary<string, string>();
+                                if (jointType == JointType.ShoulderRight)
+                                {
+                                    shoulderright.Add("8", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = shoulderright["8"];
+                                    Console.Write(value + "  좌표(ShoulderRight): 8" + "\n");
+                                }
+
+                                // elbowleft 출력
+                                Dictionary<string, string> elbowleft = new Dictionary<string, string>();
+                                if (jointType == JointType.ElbowLeft)
+                                {
+                                    elbowleft.Add("5", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = elbowleft["5"];
+                                    Console.Write(value + "  좌표(ElbowLeft): 5" + "\n");
+                                }
+
+                                // elbowright 출력
+                                Dictionary<string, string> elbowright = new Dictionary<string, string>();
+                                if (jointType == JointType.ElbowRight)
+                                {
+                                    elbowright.Add("9", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = elbowleft["9"];
+                                    Console.Write(value + "  좌표(ElbowRignt): 9" + "\n");
+                                }
+                            
                                 // spinemid 출력
                                 Dictionary<string, string> spinemid = new Dictionary<string, string>();          
                                 if (jointType == JointType.SpineMid)
@@ -431,6 +483,42 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                                     Object value = spinemid["1"];
                                     Console.Write(value + "  좌표(spinemid): 1" + "\n");
                                   }
+
+                                // wristleft 출력
+                                Dictionary<string, string> wristleft = new Dictionary<string, string>();
+                                if (jointType == JointType.WristLeft)
+                                {
+                                    wristleft.Add("6", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = wristleft["6"];
+                                    Console.Write(value + "  좌표(wristleft): 6" + "\n");
+                                }
+
+                                // wristright 출력
+                                Dictionary<string, string> wristright = new Dictionary<string, string>();
+                                if (jointType == JointType.WristRight)
+                                {
+                                    wristright.Add("10", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = wristright["10"];
+                                    Console.Write(value + "  좌표(wristright): 10" + "\n");
+                                }
+
+                                // thumbleft 출력
+                                Dictionary<string, string> thumbleft = new Dictionary<string, string>();
+                                if (jointType == JointType.ThumbLeft)
+                                {
+                                    thumbleft.Add("22", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = thumbleft["22"];
+                                    Console.Write(value + "  좌표(thumbleft): 22" + "\n");
+                                }
+
+                                // thumbright 출력
+                                Dictionary<string, string> thumbright = new Dictionary<string, string>();
+                                if (jointType == JointType.ThumbRight)
+                                {
+                                    thumbright.Add("24", ("(" + position.X + ", " + position.Y + ", " + position.Z + ")"));
+                                    Object value = thumbleft["24"];
+                                    Console.Write(value + "  좌표(thumbright): 24" + "\n");
+                                }
 
                                 // spinebase 출력
                                 Dictionary<string, string> spinebase = new Dictionary<string, string>();
