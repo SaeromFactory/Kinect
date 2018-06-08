@@ -29,6 +29,8 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     using System.Data;
     using MySql.Data;
     using MySql.Data.MySqlClient;
+    using System.Net;
+
     /// <summary>
     /// Interaction logic for MainWindow
     /// </summary>
@@ -60,7 +62,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                  */
             }
 
-            public static void testchectname(string name)
+           /* public static void testchectname(string name)
             {
                 string query = "INSERT INTO raw_data(num) VALUES(3)";
                 Console.WriteLine("Query Exec String is {0}", query);
@@ -75,9 +77,39 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                     Console.WriteLine("결과는 {0}", result);
                 }
                 query_result.Close();
-            }
-        }
+            } */
 
+        public static void HttpCall()
+        {
+            String callUrl = "http://localhost:8080/test/call";
+            String[] data = new String[1];
+            data[0] = "jeongju";
+            data[1] = "gachon654321";
+
+            String postData = String.Format("id={0}&pw={1}, data[0], data[1]");
+
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(callUrl);
+            //인코딩 UTF-8
+
+            Console.WriteLine("localhost연결중");
+            byte[] sendData = UTF8Encoding.UTF8.GetBytes(postData);
+            httpWebRequest.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
+            httpWebRequest.Method = "POST";
+            httpWebRequest.ContentLength = sendData.Length;
+            Stream requestStream = httpWebRequest.GetRequestStream();
+            requestStream.Write(sendData, 0, sendData.Length);
+            requestStream.Close();
+            HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream(), Encoding.GetEncoding("UTF-8"));
+            string response = streamReader.ReadToEnd();
+            streamReader.Close();
+            httpWebResponse.Close();
+
+            Console.Write("return: " + response);
+
+            
+        }
+    }
     
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
@@ -281,7 +313,8 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             
             Console.WriteLine("logoglgogo@@####@@@#!");
             Program.ConnectDB();
-            Program.testchectname("현지짱");
+            Program.HttpCall();
+          //  Program.testchectname("현지짱");
         }
 
         /// <summary>
